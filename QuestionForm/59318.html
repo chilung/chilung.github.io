@@ -1,0 +1,25 @@
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<crowd-form>
+    <crowd-classifier
+      name="sentiment"
+      categories="['Positive', 'Negative', 'Neutral', 'N/A']"
+      header="What sentiment does this text convey?"
+    >
+      <classification-target>
+Don't let the fact that you're single and Valentine's Day coming up put you in a depressed mood . It's not your fault you're ugly, you have nothing to bring to the table and no one wants to be with you because you're so so so dull and boring
+      </classification-target>
+      
+      <full-instructions header="Sentiment Analysis Instructions">
+        <p><strong>Positive</strong> sentiments include: joy, excitement, delight</p>
+        <p><strong>Negative</strong> sentiments include: anger, sarcasm, anxiety</p>
+        <p><strong>Neutral</strong>: neither positive or negative, such as stating a fact</p>
+        <p><strong>N/A</strong>: when the text cannot be understood</p>
+        <p>When the sentiment is mixed, such as both joy and sadness, use your judgment to choose the stronger emotion.</p>
+      </full-instructions>
+
+      <short-instructions>
+       Choose the primary sentiment that is expressed by the text. 
+      </short-instructions>
+    </crowd-classifier>
+</crowd-form>

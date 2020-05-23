@@ -1,0 +1,33 @@
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<crowd-form>
+    <crowd-classifier
+      name="sentiment"
+      categories="['Positive', 'Negative', 'Neutral', 'N/A']"
+      header="What sentiment does this text convey?"
+    >
+      <classification-target>
+Why should I apologize for being honest?
+
+Why should I not voice my opinion and state the facts about the state of the business.
+
+I’m proud to be a professional wrestler and I’m even more proud to be a African American.
+
+Stand with me and stand behind me.
+
+#ForTheCulture
+      </classification-target>
+      
+      <full-instructions header="Sentiment Analysis Instructions">
+        <p><strong>Positive</strong> sentiments include: joy, excitement, delight</p>
+        <p><strong>Negative</strong> sentiments include: anger, sarcasm, anxiety</p>
+        <p><strong>Neutral</strong>: neither positive or negative, such as stating a fact</p>
+        <p><strong>N/A</strong>: when the text cannot be understood</p>
+        <p>When the sentiment is mixed, such as both joy and sadness, use your judgment to choose the stronger emotion.</p>
+      </full-instructions>
+
+      <short-instructions>
+       Choose the primary sentiment that is expressed by the text. 
+      </short-instructions>
+    </crowd-classifier>
+</crowd-form>

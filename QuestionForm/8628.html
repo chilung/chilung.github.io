@@ -1,0 +1,25 @@
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<crowd-form>
+    <crowd-classifier
+      name="sentiment"
+      categories="['Positive', 'Negative', 'Neutral', 'N/A']"
+      header="What sentiment does this text convey?"
+    >
+      <classification-target>
+Vinatieri just missed a potential game winning field goal from 43 yards away. Why didn’t Head Coach Frank Reich know he was going to miss it? Last week he knew he was going to make the 51 yarder. How can that be?
+      </classification-target>
+      
+      <full-instructions header="Sentiment Analysis Instructions">
+        <p><strong>Positive</strong> sentiments include: joy, excitement, delight</p>
+        <p><strong>Negative</strong> sentiments include: anger, sarcasm, anxiety</p>
+        <p><strong>Neutral</strong>: neither positive or negative, such as stating a fact</p>
+        <p><strong>N/A</strong>: when the text cannot be understood</p>
+        <p>When the sentiment is mixed, such as both joy and sadness, use your judgment to choose the stronger emotion.</p>
+      </full-instructions>
+
+      <short-instructions>
+       Choose the primary sentiment that is expressed by the text. 
+      </short-instructions>
+    </crowd-classifier>
+</crowd-form>
