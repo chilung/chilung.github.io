@@ -1,23 +1,26 @@
-
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 
 <crowd-form>
-  <crowd-image-classifier
-    name="crowd-image-classifier"
-    src="https://unsplash.com/photos/NLUkAA-nDdE"
-    header="Please select the correct category for this image"
-    categories="['Person', 'Umbrella', 'Chair', 'Dolphin']"
-  >
-    <full-instructions header="Classification Instructions">
-      <p>Read the task carefully and inspect the image.</p>
-      <p>Choose the appropriate label that best suits the image.</p>
-    </full-instructions>
-    <short-instructions>
-      <p>Read the task carefully and inspect the image.</p>
-      <p>Choose the appropriate label that best suits the image.</p>
-      <crowd-button>
-        <iron-icon icon="question-answer"/>
-      </crowd-button>
-    </short-instructions>
-  </crowd-image-classifier>
+    <crowd-classifier-multi-select
+      name="category"
+      categories="['Positive', 'Negative', 'Neutral']"
+      header="Select the relevant categories"
+      exclusion-category="{ text: 'None of the above' }"
+    >
+      <classification-target>
+        {{ task.input.taskObject }}
+      </classification-target>
+      
+      <full-instructions header="Text Categorization Instructions">
+        <p><strong>Positive</strong> sentiment include: joy, excitement, delight</p>
+        <p><strong>Negative</strong> sentiment include: anger, sarcasm, anxiety</p>
+        <p><strong>Neutral</strong>: neither positive or negative, such as stating a fact</p>
+        <p><strong>N/A</strong>: when the text cannot be understood</p>
+        <p>When the sentiment is mixed, such as both joy and sadness, choose both labels.</p>
+      </full-instructions>
+
+      <short-instructions>
+       Choose all categories that are expressed by the text. 
+      </short-instructions>
+    </crowd-classifier-multi-select>
 </crowd-form>
