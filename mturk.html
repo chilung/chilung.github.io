@@ -2,22 +2,24 @@
 
 <crowd-form>
     <crowd-classifier
-      name="category"
-      categories="['Positive', 'Negative', "neural', 'N/A']"
-      header="What type of a document is this?"
+      name="sentiment"
+      categories="['Positive', 'Negative', 'Neutral', 'N/A']"
+      header="What sentiment does this text convey?"
     >
       <classification-target>
-        11:37
-        <iframe style="width: 100%; height: 600px;" src="{{ task.input.taskObject  | grant_read_access }}" type="application/pdf"></iframe>
+        Everything is wonderful 1033
       </classification-target>
       
-      <full-instructions header="Document Classification Instructions">
-        <p>Read the task carefully and inspect the document.</p>
-        <p>Choose the appropriate label that best suits the document.</p>
+      <full-instructions header="Sentiment Analysis Instructions">
+        <p><strong>Positive</strong> sentiments include: joy, excitement, delight</p>
+        <p><strong>Negative</strong> sentiments include: anger, sarcasm, anxiety</p>
+        <p><strong>Neutral</strong>: neither positive or negative, such as stating a fact</p>
+        <p><strong>N/A</strong>: when the text cannot be understood</p>
+        <p>When the sentiment is mixed, such as both joy and sadness, use your judgment to choose the stronger emotion.</p>
       </full-instructions>
 
       <short-instructions>
-        Please choose the correct category for the document
+       Choose the primary sentiment that is expressed by the text. 
       </short-instructions>
     </crowd-classifier>
 </crowd-form>
