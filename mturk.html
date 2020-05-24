@@ -6,11 +6,6 @@
       categories="['Positive', 'Negative', 'Neutral', 'N/A']"
       header="What sentiment does this text convey?"
     >
-    <crowd-classifier
-      name="sentiment2"
-      categories="['Positive', 'Negative', 'Neutral', 'N/A']"
-      header="What sentiment does this text convey?"
-    >
       <classification-target>
         Everything is wonderful
       </classification-target>
@@ -20,6 +15,26 @@
         <p><strong>Negative</strong> sentiments include: anger, sarcasm, anxiety</p>
         <p><strong>Neutral</strong>: neither positive or negative, such as stating a fact</p>
         <p><strong>N/A</strong>: when the text cannot be understood</p>
+        <p>When the sentiment is mixed, such as both joy and sadness, use your judgment to choose the stronger emotion.</p>
+      </full-instructions>
+
+      <short-instructions>
+       Choose the primary sentiment that is expressed by the text. 
+      </short-instructions>
+    </crowd-classifier>
+    <crowd-classifier
+      name="sentiment2"
+      categories="['Yes', 'No', 'OK', 'Maybe']"
+      header="What sentiment does this text convey?"
+    >
+      <classification-target>
+      </classification-target>
+      
+      <full-instructions header="Sentiment Analysis Instructions">
+        <p><strong>Yes</strong> sentiments include: joy, excitement, delight</p>
+        <p><strong>No</strong> sentiments include: anger, sarcasm, anxiety</p>
+        <p><strong>OK</strong>: neither positive or negative, such as stating a fact</p>
+        <p><strong>Maybe</strong>: when the text cannot be understood</p>
         <p>When the sentiment is mixed, such as both joy and sadness, use your judgment to choose the stronger emotion.</p>
       </full-instructions>
 
