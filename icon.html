@@ -1,0 +1,37 @@
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+<crowd-form>
+    <crowd-image-classifier 
+        src="${image_url}"
+        categories="['Cat', 'Dog', 'Bird', 'None of the Above']"
+        header="Choose the correct category for the image"
+        name="category">
+
+
+        <short-instructions>
+            <p>Read the task carefully and inspect the image.</p>
+            <p>Choose the appropriate label that best suits the image.</p>
+            <p>If there is an issue with the image or tools, please select
+              <b>None of the Above</b>, describe the issue in the text box and click the 
+              button below.</p>
+            <crowd-input label="Report an Issue" name="template-issues"/></crowd-input>
+            <crowd-icon-button id="button1" icon="report-problem" title="Issue"/>
+        </short-instructions>
+        
+        <full-instructions header="Classification Instructions">
+            <p>Read the task carefully and inspect the image.</p>
+            <p>Choose the appropriate label that best suits the image. 
+            Use the <b>None of the Above</b> option if none of the other labels suit the image.</p>
+        </full-instructions>
+
+    </crowd-image-classifier>
+</crowd-form>
+
+<script>
+  [
+    button1,
+  ].forEach(function(button) {
+    button.addEventListener('click', function() {
+      document.querySelector('crowd-form').submit();
+    });
+  });
+</script>
