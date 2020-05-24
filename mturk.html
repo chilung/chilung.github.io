@@ -1,28 +1,25 @@
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
-
 <crowd-form>
-    <crowd-classifier
-      name="emotion1"
-      categories="['Anger', 'Disgust', 'Fear', 'Happiness', 'Sadness', 'Surprise']"
-      header="What emotion does this tweet convey?"
-      name="emotion2"
-      categories="['Anger', 'Disgust', 'Fear', 'Happiness', 'Sadness', 'Surprise']"
-      header="What emotion does this tweet convey?"
-    >
-      <classification-target>
-        <blockquote class="twitter-tweet">
-          Time 10:58
-        </blockquote> 
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
-      </classification-target>
-      
-      <full-instructions header="Emotion Detection Instructions">
-        <p>Select the <strong>primary</strong> emotion that's expressed in the tweet.</p>
-        <p>If there are multiple emotions expressed, use your judgement and choose the one that's is the strongest of the emotions.</p>
-      </full-instructions>
+  <crowd-classifier 
+    name="tweetFeeling"
+    categories="['positive','negative','neutral', 'unclear']"
+    header="Which term best describes this tweet?" 
+  >
+     <classification-target>
+      My favorite football team won today! 
+      Bring on the division finals!
+    </classification-target>
 
-      <short-instructions>
-       <p>Select the <strong>primary</strong> emotion the tweet is expressing.</p>
-      </short-instructions>
-    </crowd-classifier>
+    <full-instructions header="Sentiment Analysis Instructions">
+      Try to determine the sentiment the author 
+      of the tweet is trying to express. 
+      If none seem to match, choose "cannot determine."
+    </full-instructions>
+
+    <short-instructions>
+      Pick the term best describing the sentiment 
+      of the tweet. 
+    </short-instructions>
+
+  </crowd-classifier>
 </crowd-form>
