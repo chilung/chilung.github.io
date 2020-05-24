@@ -1,6 +1,10 @@
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 
 <crowd-form>
+    <crowd-radio-group>
+        <crowd-radio-button name="tech" value="tech">Technology</crowd-radio-button>
+        <crowd-radio-button name="politics" value="politics">Politics</crowd-radio-button>
+    </crowd-radio-group>
     <crowd-classifier
       name="sentiment"
       categories="['Positive', 'Negative', 'Neutral', 'N/A']"
