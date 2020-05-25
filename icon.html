@@ -3,9 +3,8 @@
 <crowd-form>
     <crowd-classifier-multi-select
       name="category"
-      categories="['Positive', 'Negative', 'Neutral']"
+      categories="['1017Positive', 'Negative', 'Neutral']"
       header="Select the relevant categories"
-      exclusion-category="{ text: 'None of the above' }"
     >
       <classification-target>
         {{ task.input.taskObject }}
@@ -16,7 +15,7 @@
         <p><strong>Negative</strong> sentiment include: anger, sarcasm, anxiety</p>
         <p><strong>Neutral</strong>: neither positive or negative, such as stating a fact</p>
         <p><strong>N/A</strong>: when the text cannot be understood</p>
-        <p>When the sentiment is mixed, such as both joy and sadness, choose both labels.</p>
+        <p>When the sentiment is mixed, such as both joy and sadness, use your judgment to choose the stronger emotion.</p>
       </full-instructions>
 
       <short-instructions>
