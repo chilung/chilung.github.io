@@ -7,17 +7,25 @@
       header="What sentiment does this text convey?"
     >
       <classification-target>
-        0944 Everything is wonderful.
+        0947 Everything is wonderful.
         <h2>Question</h2>
     	<p>Valence rating</p>
 	        <p><crowd-radio-group allow-empty-selection=false>
-	    		<crowd-radio-button name="Pleasant" value="Pleasant">Pleasant (5)</crowd-radio-button>
+	    		<crowd-radio-button name="Pleasant" value="Pleasant" checked>Pleasant (5)</crowd-radio-button>
 	    		<crowd-radio-button name="Pleased" value="Pleased">Pleased (4)</crowd-radio-button>
 	    		<crowd-radio-button name="Neural" value="Neural">Neural (3)</crowd-radio-button>
 	    		<crowd-radio-button name="Unsatisfied" value="Unsatisfied">Unsatisfied (2)</crowd-radio-button>
 	    		<crowd-radio-button name="Unpleasant" value="Unpleasant">Unpleasant (1)</crowd-radio-button>
-		    </crowd-radio-group></p>
+		</crowd-radio-group></p>
 	  </classification-target>
+		<p>Arousal rating</p>
+	    	<p><crowd-radio-group>
+		    <crowd-radio-button name="Excited" value="Excited">Excited (5)</crowd-radio-button>
+		    <crowd-radio-button name="Wide-awake" value="Wide-awake">Wide-awake (4)</crowd-radio-button>
+		    <crowd-radio-button name="Neural" value="Neural">Neural (3)</crowd-radio-button>
+		    <crowd-radio-button name="Dull" value="Dull">Dull (2)</crowd-radio-button>
+		    <crowd-radio-button name="Calm" value="Calm">Calm (1)</crowd-radio-button>
+		</crowd-radio-group></p>
       
       <full-instructions header="Sentiment Analysis Instructions">
         <p><strong>Positive</strong> sentiments include: joy, excitement, delight</p>
