@@ -5,7 +5,7 @@
    
   <crowd-keypoint
     src="{{ task.input.taskObject | grant_read_access }}"
-    labels="['0104 Item A', 'Item B', 'Item C']"        
+    labels="['0107 Item A', 'Item B', 'Item C']"        
     header="Please locate the centers of each item."
     name="annotatedResult">
     <short-instructions>
@@ -21,5 +21,6 @@
   document.querySelector('crowd-form').onsubmit = function(e ) {
          errorBox.innerHTML = '<crowd-alert type="error" dismissible>You must use each label only once.</crowd-alert>';
          errorBox.scrollIntoView();
+    return
   }
 </script>
