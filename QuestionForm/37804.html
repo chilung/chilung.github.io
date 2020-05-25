@@ -1,25 +1,73 @@
 <script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 
-<crowd-form>
-    <crowd-classifier
-      name="sentiment"
-      categories="['Positive', 'Negative', 'Neutral', 'N/A']"
-      header="What sentiment does this text convey?"
-    >
-      <classification-target>
-Read the Transcripts!
-      </classification-target>
-      
-      <full-instructions header="Sentiment Analysis Instructions">
-        <p><strong>Positive</strong> sentiments include: joy, excitement, delight</p>
-        <p><strong>Negative</strong> sentiments include: anger, sarcasm, anxiety</p>
-        <p><strong>Neutral</strong>: neither positive or negative, such as stating a fact</p>
-        <p><strong>N/A</strong>: when the text cannot be understood</p>
-        <p>When the sentiment is mixed, such as both joy and sadness, use your judgment to choose the stronger emotion.</p>
-      </full-instructions>
+<style>
+	body {
+		margin-top: 30px;
+    		margin-left: 10px;
+		margin-right: 20px;
+	}
+	#outer-container {
+    		margin-left: 10px;
+		display: flex;
+		justify-content: space-around;
+		<!--max-width: 900px;-->
+	}
+	.left-container {
+    		margin-left: 10px;
+    		margin-right: 10px;
+    		max-width: 500px;
+	}
+	.right-container {
+   	 	margin-left: 10px;
+   	 	margin-right: 10px;
+	}
+	#vertical-separator {
+	    border: solid 1px #d5dbdb;
+	}
+</style>
 
-      <short-instructions>
-       Choose the primary sentiment that is expressed by the text. 
-      </short-instructions>
-    </crowd-classifier>
+<crowd-form>
+    <div>
+        <h2>Background</h2>
+        <p>Read the Transcripts!</p>
+    </div>
+    <div id="outer-container">
+	<span class="left-container">
+	    <h2>How to Answer:</h2>
+	    <p>VAD uses three numerical dimensions, Valence, Arousal and Dominance to represent all emotions.
+		    Valence rates from Pleasant (5) to Unpleasant (1).
+		    Arousal rates from Excited (5) to Calm (1).
+		    Dominance rates from Dependent (5) to Independent (1).
+		    These three dimension of emotions are illustrated as the picture below:</p>
+	    <p><img src="https://chilung.github.io/VAD.bmp"></p>
+	</span>
+	<span id="vertical-separator"></span>
+	<span class="right-container">
+		<h2>Question</h2>
+    		<p>Valence rating</p>
+	    	<p><crowd-radio-group allow-empty-selection="false">
+	    		<crowd-radio-button name="Pleasant" value="Pleasant" checked>Pleasant (5)</crowd-radio-button>
+	    		<crowd-radio-button name="Pleased" value="Pleased">Pleased (4)</crowd-radio-button>
+	    		<crowd-radio-button name="Neural" value="Neural">Neural (3)</crowd-radio-button>
+	    		<crowd-radio-button name="Unsatisfied" value="Unsatisfied">Unsatisfied (2)</crowd-radio-button>
+	    		<crowd-radio-button name="Unpleasant" value="Unpleasant">Unpleasant (1)</crowd-radio-button>
+		</crowd-radio-group></p>
+		<p>Arousal rating</p>
+	    	<p><crowd-radio-group>
+		    <crowd-radio-button name="Excited" value="Excited" checked>Excited (5)</crowd-radio-button>
+		    <crowd-radio-button name="Wide-awake" value="Wide-awake">Wide-awake (4)</crowd-radio-button>
+		    <crowd-radio-button name="Neural" value="Neural">Neural (3)</crowd-radio-button>
+		    <crowd-radio-button name="Dull" value="Dull">Dull (2)</crowd-radio-button>
+		    <crowd-radio-button name="Calm" value="Calm">Calm (1)</crowd-radio-button>
+		</crowd-radio-group></p>
+		<p>Dominance rating</p>
+	    	<p><crowd-radio-group>
+		    <crowd-radio-button name="Dependent" value="Dependent" checked>Dependent (5)</crowd-radio-button>
+		    <crowd-radio-button name="Powerlessness" value="Powerlessness">Powerlessness (4)</crowd-radio-button>
+		    <crowd-radio-button name="Neural" value="Neural">Neural (3)</crowd-radio-button>
+		    <crowd-radio-button name="Powerful" value="Powerful">Powerful (2)</crowd-radio-button>
+		    <crowd-radio-button name="Independent" value="Independent">Independent (1)</crowd-radio-button>
+		</crowd-radio-group></p>
+	</span>
+    </div>
 </crowd-form>
