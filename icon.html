@@ -19,10 +19,7 @@
 
 <script>
   document.querySelector('crowd-form').onsubmit = function(e ) {
-      if (!validateForm()) {
-          e.preventDefault();
-          errorBox.innerHTML = '<crowd-alert type="error" dismissible>You must use each label only once.</crowd-alert>';
-          errorBox.scrollIntoView();
-      }
+         errorBox.innerHTML = '<crowd-alert type="error" dismissible>You must use each label only once.</crowd-alert>';
+         errorBox.scrollIntoView();
   }
 </script>
