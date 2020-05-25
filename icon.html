@@ -3,12 +3,11 @@
 <crowd-form>
     <crowd-classifier-multi-select
       name="category"
-      categories="['Positive', 'Negative', 'Neutral']"
+      categories="['1012Positive', 'Negative', 'Neutral']"
       header="Select the relevant categories"
       exclusion-category="{ text: 'None of the above' }"
     >
       <classification-target>
-        1011
         {{ task.input.taskObject }}
       </classification-target>
       
