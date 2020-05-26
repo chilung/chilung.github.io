@@ -31,7 +31,7 @@
     <div id="errorBox"></div>
     <div>
         <h2>Tweet Message</h2>
-        <p><h3> 02 Please read the tweet message below and select the answer in each rating describes your emotion most.</h3></p>
+        <p><h3> 05 Please read the tweet message below and select the answer in each rating describes your emotion most.</h3></p>
 	<p id="TweetMessage">tweet message. tweet message. tweet message. tweet message. tweet message. tweet message. tweet message. </p>
     </div>
     <div id="outer-container">
@@ -85,9 +85,10 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false);
 	
 document.querySelector('crowd-form').onsubmit = function(e) {
-	endTime = new Date();
-	lenTime = endTime - startTime;
-	atLeastTime = parseInt(document.getElementById("TweetMessage").innerText.length / 10);
+	var endTime = new Date();
+	var lenTime = endTime - startTime;
+	var atLeastTime = parseInt(document.getElementById("TweetMessage").innerText.length / 10);
+	var Valence_value, Arousal_value, Dominance_value;
 
 	window.alert("startTime: " + startTime + 
 		"\nendTime: " + endTime + 
@@ -138,7 +139,6 @@ document.querySelector('crowd-form').onsubmit = function(e) {
 		e.preventDefault();
 		return;
 	}
-
 	
 	if (document.getElementsByName("Pleasant")[0].checked == true) {
 		Valence_value = 5;
