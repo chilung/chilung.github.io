@@ -31,7 +31,7 @@
     <div id="errorBox"></div>
     <div>
         <h2>Tweet Message</h2>
-        <p><h3> 04 Please read the tweet message below and select the answer in each rating describes your emotion most.</h3></p>
+        <p><h3> 10 Please read the tweet message below and select the answer in each rating describes your emotion most.</h3></p>
 	<p id="TweetMessage">tweet message. tweet message. tweet message. tweet message. tweet message. tweet message. tweet message. </p>
     </div>
     <div id="outer-container">
@@ -144,8 +144,22 @@ document.querySelector('crowd-form').onsubmit = function(e) {
 		else if (document.getElementsByName("Valence-Neural")[0].checked == true) Valence_value = 3;
 		else if (document.getElementsByName("Unsatisfied")[0].checked == true) Valence_value = 2;
 		else Valence_value = 1;
+	Arousal_value = 1;
+	if (document.getElementsByName("Excited")[0].checked == true) Arousal_value = 5;
+		else if (document.getElementsByName("Wide-awake")[0].checked == true) Arousal_value = 4;
+		else if (document.getElementsByName("Arousal-Neural")[0].checked == true) Arousal_value = 3;
+		else if (document.getElementsByName("Dull")[0].checked == true) Arousal_value = 2;
+		else Arousal_value = 5;
 	
-	errorBox.innerHTML = '<crowd-alert type="error" dismissible> Valence_value: ' + Valence_value + ' </crowd-alert>';
+	Dominance_value = 1;
+	if (document.getElementsByName("Dependent")[0].checked == true) Dominance_value = 5;
+		else if (document.getElementsByName("Powerlessness")[0].checked == true) Dominance_value = 4;
+		else if (document.getElementsByName("Dominance-Neural")[0].checked == true) Dominance_value = 3;
+		else if (document.getElementsByName("Powerful")[0].checked == true) Dominance_value = 2;
+		else Dominance_value = 5;
+		
+	errorBox.innerHTML = '<crowd-alert type="error" dismissible> Valence_value: ' + Valence_value + 
+		' Arousal_value: ' + Arousal_value + ' Dominance_value: ' + Dominance_value + ' </crowd-alert>';
 	errorBox.scrollIntoView();
 
 	<!-- window.alert("Length: " +  document.getElementsByName("Excited").length + " Value: " + document.getElementsByName("Excited")[0].value + " Checked: " + document.getElementsByName("Excited")[0].checked); -->
