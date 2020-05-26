@@ -94,7 +94,9 @@ document.querySelector('crowd-form').onsubmit = function(e) {
 		"endTime: " + endTime + 
 		"Elapse Time: " + lenTime + 
 		" Tweet Message: " + document.getElementsByName("TweetMessage").length + 
-		" Tweet Value: " + document.getElementsByName("TweetMessage")[0].value);
+		" Tweet Value: " + document.getElementsByName("TweetMessage")[0].value + 
+		" Tweet Value: " + document.getElementsByName("TweetMessage")[1].value + 
+		" Tweet Value: " + document.getElementsByName("TweetMessage")[2].value);
 	
 	if (lenTime < 5000) {
 		errorBox.innerHTML = '<crowd-alert type="error" dismissible> You spend too less time on this assignment! </crowd-alert>';
