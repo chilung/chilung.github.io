@@ -30,7 +30,7 @@
 <crowd-form>
     <div>
         <h2>Background</h2>
-        <p>0831 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>0839 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
     <div id="outer-container">
 	<span class="left-container">
@@ -76,8 +76,6 @@
 <script>
 
   document.querySelector('crowd-form').onsubmit = function(e) {
-    errorBox.innerHTML = '<crowd-alert type="error" dismissible>You must add all keypoint annotations and use each label only once.</crowd-alert>';
-    errorBox.scrollIntoView();
-    return;
+    window.alert("Please check the form carefully, it isn't filled out completely!");
   }
 </script>
