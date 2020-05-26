@@ -31,7 +31,7 @@
     <div id="errorBox"></div>
     <div>
         <h2>Background</h2>
-        <p>1027 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>1032 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
     <div id="outer-container">
 	<span class="left-container">
@@ -81,7 +81,7 @@ document.querySelector('crowd-form').onsubmit = function(e) {
 		"Pleased: " +  document.getElementsByName("Pleased")[0].checked +
 		"Excited: " +  document.getElementsByName("Excited")[0].checked + 
 		"Neural: " +  document.getElementsByName("Neural")[0].checked + 
-		"Neural: " +  document.getElementsByName("Neural")[0].checked)
+		"Neural: " +  document.getElementsByName("Neural")[0].checked);
 	
 	if (document.getElementsByName("Pleasant")[0].checked == false &&
 			document.getElementsByName("Pleased")[0].checked == false &&
@@ -90,6 +90,8 @@ document.querySelector('crowd-form').onsubmit = function(e) {
 			document.getElementsByName("Neural")[0].checked == false) {
 		errorBox.innerHTML = '<crowd-alert type="error" dismissible> Please select one in Valence rating! </crowd-alert>';
 		errorBox.scrollIntoView();
+		
+		return;
 	}
 
 	<!-- window.alert("Length: " +  document.getElementsByName("Excited").length + " Value: " + document.getElementsByName("Excited")[0].value + " Checked: " + document.getElementsByName("Excited")[0].checked); -->
