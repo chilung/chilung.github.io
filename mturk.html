@@ -89,12 +89,6 @@ document.querySelector('crowd-form').onsubmit = function(e) {
 	lenTime = endTime - startTime;
 	atLeastTime = parseInt(document.getElementById("TweetMessage").innerText.length / 10);
 
-	<!-- window.alert("startTime: " + startTime + 
-		"\nendTime: " + endTime + 
-		"\nElapse Time: " + lenTime + 
-		"\nTweet Message: " + document.getElementById("TweetMessage").innerText +
-		"\nat least Time: " + atLeastTime); -->
-
 	if ((lenTime/1000) < atLeastTime) {
 		errorBox.innerHTML = '<crowd-alert type="error" dismissible> You spend too less time on this assignment! ' + 
 			atLeastTime + ' seconds at least! </crowd-alert>';
