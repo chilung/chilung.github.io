@@ -31,7 +31,7 @@
     <div id="errorBox"></div>
     <div>
         <h2>Background</h2>
-        <p>0851 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>0856 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
     <div id="outer-container">
 	<span class="left-container">
@@ -78,7 +78,8 @@
 
   document.querySelector('crowd-form').onsubmit = function(e) {
 	newValue = 3000
-	window.alert("Show a Message" + newValue);
+	window.alert("Show a Message: " + newValue + document.getElementsByName("Excited"));
+	
 	errorBox.innerHTML = '<crowd-alert type="error" dismissible> show message </crowd-alert>';
 	errorBox.scrollIntoView();
   }
