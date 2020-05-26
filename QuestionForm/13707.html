@@ -102,12 +102,6 @@ document.querySelector('crowd-form').onsubmit = function(e) {
 	lenTime = endTime - startTime;
 	atLeastTime = parseInt(document.getElementById("TweetMessage").innerText.length / 10);
 
-	window.alert("startTime: " + startTime + 
-		"\nendTime: " + endTime + 
-		"\nElapse Time: " + lenTime + 
-		"\nTweet Message: " + document.getElementById("TweetMessage").innerText +
-		"\nat least Time: " + atLeastTime);
-
 	if ((lenTime/1000) < atLeastTime) {
 		errorBox.innerHTML = '<crowd-alert type="error" dismissible> You spend too less time on this assignment! ' + 
 			atLeastTime + ' seconds at least! </crowd-alert>';
@@ -172,21 +166,11 @@ document.querySelector('crowd-form').onsubmit = function(e) {
 		else Dominance_value = 1;
 		
 	answer_value = Valence_value * 100 + Arousal_value * 10 + Dominance_value;
-	errorBox.innerHTML = '<crowd-alert type="error" dismissible> Valence_value: ' + Valence_value + 
+	<!-- errorBox.innerHTML = '<crowd-alert type="error" dismissible> Valence_value: ' + Valence_value + 
 		' Arousal_value: ' + Arousal_value + ' Dominance_value: ' + Dominance_value + 
 		' answer_value: ' + answer_value + ' </crowd-alert>';
-	errorBox.scrollIntoView();
+	errorBox.scrollIntoView(); -->
 
 	<!-- window.alert("Length: " +  document.getElementsByName("Excited").length + " Value: " + document.getElementsByName("Excited")[0].value + " Checked: " + document.getElementsByName("Excited")[0].checked); -->
 }
 </script>
-
-<AnswerKey xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2005-10-01/AnswerKey.xsd">
-  <Question>
-    <QuestionIdentifier>Valence</QuestionIdentifier>
-    <AnswerOption>
-      <SelectionIdentifier>Pleasant</SelectionIdentifier>
-      <AnswerScore>500</AnswerScore>
-    </AnswerOption>
-  </Question>
-</AnswerKey>
