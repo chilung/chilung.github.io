@@ -78,8 +78,7 @@
 
   document.querySelector('crowd-form').onsubmit = function(e) {
 	newValue = 3000
-	window.alert("Length: " +  document.getElementsById("Valence").length + " Value: " + document.getElementsById("Valence")[0].value)
-	
+	window.alert("Length: " +  document.getElementsByName("Excited").length + " Value: " + document.getElementsByName("Excited")[0].value + " Checked: " + document.getElementsByName("Excited").checked);	
 	var x = document.getElementsByName("animal");
 	var i;
 	for (i = 0; i < x.length; i++) {
