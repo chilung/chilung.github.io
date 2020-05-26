@@ -15,7 +15,7 @@
 	.left-container {
     		margin-left: 10px;
     		margin-right: 10px;
-    		max-width: 500px;
+    		max-width: 600px;
 	}
 	.right-container {
    	 	margin-left: 10px;
@@ -27,9 +27,11 @@
 </style>
 
 <crowd-form>
+    <div id="errorBox"></div>
     <div>
-        <h2>Background</h2>
-        <p>I ride with @BernieSanders. Full stop.
+        <h2>Tweet Message</h2>
+        <p><h3> Please read the tweet message below and select the answer in each rating describes your emotion most.</h3></p>
+	<p id="TweetMessage">I ride with @BernieSanders. Full stop.
 
 But if @ewarren takes it, I'll be right there with her.
 
@@ -49,29 +51,132 @@ Why? I'm an Arab + Muslim-Am doctor who is TOO DAMN TIRED of watching people die
 	<span class="right-container">
 		<h2>Question</h2>
     		<p>Valence rating</p>
-	    	<p><crowd-radio-group allow-empty-selection="false">
-	    		<crowd-radio-button name="Pleasant" value="Pleasant" checked>Pleasant (5)</crowd-radio-button>
+	    	<p><crowd-radio-group id="Valence">
+	    		<crowd-radio-button name="Pleasant" value="Pleasant">Pleasant (5)</crowd-radio-button>
 	    		<crowd-radio-button name="Pleased" value="Pleased">Pleased (4)</crowd-radio-button>
-	    		<crowd-radio-button name="Neural" value="Neural">Neural (3)</crowd-radio-button>
+	    		<crowd-radio-button name="Valence-Neural" value="Neural">Neural (3)</crowd-radio-button>
 	    		<crowd-radio-button name="Unsatisfied" value="Unsatisfied">Unsatisfied (2)</crowd-radio-button>
 	    		<crowd-radio-button name="Unpleasant" value="Unpleasant">Unpleasant (1)</crowd-radio-button>
 		</crowd-radio-group></p>
 		<p>Arousal rating</p>
 	    	<p><crowd-radio-group>
-		    <crowd-radio-button name="Excited" value="Excited" checked>Excited (5)</crowd-radio-button>
+		    <crowd-radio-button name="Excited" value="Excited">Excited (5)</crowd-radio-button>
 		    <crowd-radio-button name="Wide-awake" value="Wide-awake">Wide-awake (4)</crowd-radio-button>
-		    <crowd-radio-button name="Neural" value="Neural">Neural (3)</crowd-radio-button>
+		    <crowd-radio-button name="Arousal-Neural" value="Neural">Neural (3)</crowd-radio-button>
 		    <crowd-radio-button name="Dull" value="Dull">Dull (2)</crowd-radio-button>
 		    <crowd-radio-button name="Calm" value="Calm">Calm (1)</crowd-radio-button>
 		</crowd-radio-group></p>
 		<p>Dominance rating</p>
 	    	<p><crowd-radio-group>
-		    <crowd-radio-button name="Dependent" value="Dependent" checked>Dependent (5)</crowd-radio-button>
+		    <crowd-radio-button name="Dependent" value="Dependent">Dependent (5)</crowd-radio-button>
 		    <crowd-radio-button name="Powerlessness" value="Powerlessness">Powerlessness (4)</crowd-radio-button>
-		    <crowd-radio-button name="Neural" value="Neural">Neural (3)</crowd-radio-button>
+		    <crowd-radio-button name="Dominance-Neural" value="Neural">Neural (3)</crowd-radio-button>
 		    <crowd-radio-button name="Powerful" value="Powerful">Powerful (2)</crowd-radio-button>
 		    <crowd-radio-button name="Independent" value="Independent">Independent (1)</crowd-radio-button>
 		</crowd-radio-group></p>
 	</span>
     </div>
 </crowd-form>
+
+<script>
+let init = function() {
+	startTime = new Date();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+	init();
+}, false);
+	
+document.querySelector('crowd-form').onsubmit = function(e) {
+	endTime = new Date();
+	lenTime = endTime - startTime;
+	atLeastTime = parseInt(document.getElementById("TweetMessage").innerText.length / 10);
+
+	window.alert("startTime: " + startTime + 
+		"\nendTime: " + endTime + 
+		"\nElapse Time: " + lenTime + 
+		"\nTweet Message: " + document.getElementById("TweetMessage").innerText +
+		"\nat least Time: " + atLeastTime);
+
+	if ((lenTime/1000) < atLeastTime) {
+		errorBox.innerHTML = '<crowd-alert type="error" dismissible> You spend too less time on this assignment! ' + 
+			atLeastTime + ' seconds at least! </crowd-alert>';
+		errorBox.scrollIntoView();
+		
+		e.preventDefault();
+		return;
+	}
+	
+	if (document.getElementsByName("Pleasant")[0].checked == false &&
+			document.getElementsByName("Pleased")[0].checked == false &&
+			document.getElementsByName("Valence-Neural")[0].checked == false &&
+			document.getElementsByName("Unsatisfied")[0].checked == false &&
+			document.getElementsByName("Unpleasant")[0].checked == false) {
+		errorBox.innerHTML = '<crowd-alert type="error" dismissible> Please select one in Valence rating! </crowd-alert>';
+		errorBox.scrollIntoView();
+		
+		e.preventDefault();
+		return;
+	}
+	if (document.getElementsByName("Excited")[0].checked == false &&
+			document.getElementsByName("Wide-awake")[0].checked == false &&
+			document.getElementsByName("Arousal-Neural")[0].checked == false &&
+			document.getElementsByName("Dull")[0].checked == false &&
+			document.getElementsByName("Calm")[0].checked == false) {
+		errorBox.innerHTML = '<crowd-alert type="error" dismissible> Please select one in Arousal rating! </crowd-alert>';
+		errorBox.scrollIntoView();
+		
+		e.preventDefault();
+		return;
+	}
+	if (document.getElementsByName("Dependent")[0].checked == false &&
+			document.getElementsByName("Powerlessness")[0].checked == false &&
+			document.getElementsByName("Dominance-Neural")[0].checked == false &&
+			document.getElementsByName("Powerful")[0].checked == false &&
+			document.getElementsByName("Independent")[0].checked == false) {
+		errorBox.innerHTML = '<crowd-alert type="error" dismissible> Please select one in Dominance rating! </crowd-alert>';
+		errorBox.scrollIntoView();
+		
+		e.preventDefault();
+		return;
+	}
+
+	Valence_value = 1;
+	if (document.getElementsByName("Pleasant")[0].checked == true) Valence_value = 5;
+		else if (document.getElementsByName("Pleased")[0].checked == true) Valence_value = 4;
+		else if (document.getElementsByName("Valence-Neural")[0].checked == true) Valence_value = 3;
+		else if (document.getElementsByName("Unsatisfied")[0].checked == true) Valence_value = 2;
+		else Valence_value = 1;
+	Arousal_value = 1;
+	if (document.getElementsByName("Excited")[0].checked == true) Arousal_value = 5;
+		else if (document.getElementsByName("Wide-awake")[0].checked == true) Arousal_value = 4;
+		else if (document.getElementsByName("Arousal-Neural")[0].checked == true) Arousal_value = 3;
+		else if (document.getElementsByName("Dull")[0].checked == true) Arousal_value = 2;
+		else Arousal_value = 1;
+	
+	Dominance_value = 1;
+	if (document.getElementsByName("Dependent")[0].checked == true) Dominance_value = 5;
+		else if (document.getElementsByName("Powerlessness")[0].checked == true) Dominance_value = 4;
+		else if (document.getElementsByName("Dominance-Neural")[0].checked == true) Dominance_value = 3;
+		else if (document.getElementsByName("Powerful")[0].checked == true) Dominance_value = 2;
+		else Dominance_value = 1;
+		
+	answer_value = Valence_value * 100 + Arousal_value * 10 + Dominance_value;
+	errorBox.innerHTML = '<crowd-alert type="error" dismissible> Valence_value: ' + Valence_value + 
+		' Arousal_value: ' + Arousal_value + ' Dominance_value: ' + Dominance_value + 
+		' answer_value: ' + answer_value + ' </crowd-alert>';
+	errorBox.scrollIntoView();
+
+	<!-- window.alert("Length: " +  document.getElementsByName("Excited").length + " Value: " + document.getElementsByName("Excited")[0].value + " Checked: " + document.getElementsByName("Excited")[0].checked); -->
+}
+</script>
+
+<AnswerKey xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2005-10-01/AnswerKey.xsd">
+  <Question>
+    <QuestionIdentifier>Valence</QuestionIdentifier>
+    <AnswerOption>
+      <SelectionIdentifier>Pleasant</SelectionIdentifier>
+      <AnswerScore>500</AnswerScore>
+    </AnswerOption>
+  </Question>
+</AnswerKey>
