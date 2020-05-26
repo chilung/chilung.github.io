@@ -30,8 +30,11 @@
 <crowd-form>
     <div id="errorBox"></div>
     <div>
-        <h2>Background</h2>
-        <p>0128 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h2>Tweet Message</h2>
+        <p><h3> 1542 Please read the tweet message below and select the answer in each rating describes your emotion most.</h3></p>
+	<div name="TweetMessage">
+		<p>tweet message.</p>
+	</div>
     </div>
     <div id="outer-container">
 	<span class="left-container">
@@ -90,6 +93,7 @@ document.querySelector('crowd-form').onsubmit = function(e) {
 	window.alert("startTime: " + startTime + 
 		"endTime: " + endTime + 
 		"Elapse Time: " + lenTime + 
+		" Tweet Message: " + document.getElementsByName("TweetMessage").length + 
 		" Pleasant: " +  document.getElementsByName("Pleasant")[0].checked +
 		" Pleased: " +  document.getElementsByName("Pleased")[0].checked +
 		" Neural: " +  document.getElementsByName("Valence-Neural")[0].checked + 
