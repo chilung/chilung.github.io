@@ -31,7 +31,7 @@
     <div id="errorBox"></div>
     <div>
         <h2>Background</h2>
-        <p>0947 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>1023 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
     <div id="outer-container">
 	<span class="left-container">
@@ -48,15 +48,15 @@
 		<h2>Question</h2>
     		<p>Valence rating</p>
 	    	<p><crowd-radio-group id="Valence">
-	    		<crowd-radio-button name="Pleasant" value="Pleasant" checked>Pleasant (5)</crowd-radio-button>
+	    		<crowd-radio-button name="Pleasant" value="Pleasant">Pleasant (5)</crowd-radio-button>
 	    		<crowd-radio-button name="Pleased" value="Pleased">Pleased (4)</crowd-radio-button>
 	    		<crowd-radio-button name="Neural" value="Neural">Neural (3)</crowd-radio-button>
 	    		<crowd-radio-button name="Unsatisfied" value="Unsatisfied">Unsatisfied (2)</crowd-radio-button>
-	    		<crowd-radio-button name="Unpleasant" value="Unpleasant">Unpleasant (1)</crowd-radio-button>
+	    		<crowd-radio-button name="Neural" value="Unpleasant">Unpleasant (1)</crowd-radio-button>
 		</crowd-radio-group></p>
 		<p>Arousal rating</p>
 	    	<p><crowd-radio-group>
-		    <crowd-radio-button name="Excited" value="Excited" checked>Excited (5)</crowd-radio-button>
+		    <crowd-radio-button name="Excited" value="Excited">Excited (5)</crowd-radio-button>
 		    <crowd-radio-button name="Wide-awake" value="Wide-awake">Wide-awake (4)</crowd-radio-button>
 		    <crowd-radio-button name="Neural" value="Neural">Neural (3)</crowd-radio-button>
 		    <crowd-radio-button name="Dull" value="Dull">Dull (2)</crowd-radio-button>
@@ -64,7 +64,7 @@
 		</crowd-radio-group></p>
 		<p>Dominance rating</p>
 	    	<p><crowd-radio-group>
-		    <crowd-radio-button name="Dependent" value="Dependent" checked>Dependent (5)</crowd-radio-button>
+		    <crowd-radio-button name="Dependent" value="Dependent">Dependent (5)</crowd-radio-button>
 		    <crowd-radio-button name="Powerlessness" value="Powerlessness">Powerlessness (4)</crowd-radio-button>
 		    <crowd-radio-button name="Neural" value="Neural">Neural (3)</crowd-radio-button>
 		    <crowd-radio-button name="Powerful" value="Powerful">Powerful (2)</crowd-radio-button>
@@ -76,17 +76,23 @@
 
 <script>
 
-  document.querySelector('crowd-form').onsubmit = function(e) {
-	newValue = 3000
-	window.alert("Length: " +  document.getElementsByName("Excited").length + " Value: " + document.getElementsByName("Excited")[0].value + " Checked: " + document.getElementsByName("Excited")[0].checked);	
-	var x = document.getElementsByName("animal");
-	var i;
-	for (i = 0; i < x.length; i++) {
-  		if (x[i].type == "checkbox") {
-    		x[i].checked = true;
-  		}
-	}	
-	errorBox.innerHTML = '<crowd-alert type="error" dismissible> show message </crowd-alert>';
-	errorBox.scrollIntoView();
+document.querySelector('crowd-form').onsubmit = function(e) {
+	if () {
+	window.alert("Pleasant: " +  document.getElementsByName("Pleasant")[0].checked +
+		"Pleased: " +  document.getElementsByName("Pleased")[0].checked +
+		"Excited: " +  document.getElementsByName("Excited")[0].checked + 
+		"Neural: " +  document.getElementsByName("Neural")[0].checked + 
+		"Neural: " +  document.getElementsByName("Neural")[0].checked)
+	
+	if (document.getElementsByName("Pleasant")[0].checked == false &&
+			document.getElementsByName("Pleased")[0].checked == false &&
+			document.getElementsByName("Excited")[0].checked == false &&
+			document.getElementsByName("Neural")[0].checked == false &&
+			document.getElementsByName("Neural")[0].checked == false) {
+		errorBox.innerHTML = '<crowd-alert type="error" dismissible> Please select one in Valence rating! </crowd-alert>';
+		errorBox.scrollIntoView();
+	}
+
+	<!-- window.alert("Length: " +  document.getElementsByName("Excited").length + " Value: " + document.getElementsByName("Excited")[0].value + " Checked: " + document.getElementsByName("Excited")[0].checked); -->
   }
 </script>
