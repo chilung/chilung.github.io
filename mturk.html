@@ -31,7 +31,7 @@
     <div id="errorBox"></div>
     <div>
         <h2>Tweet Message</h2>
-        <p><h3> 57 Please read the tweet message below and select the answer in each rating describes your emotion most.</h3></p>
+        <p><h3> 58 Please read the tweet message below and select the answer in each rating describes your emotion most.</h3></p>
 	<p id="TweetMessage">tweet message.</p>
     </div>
     <div id="outer-container">
@@ -91,7 +91,7 @@ document.querySelector('crowd-form').onsubmit = function(e) {
 	window.alert("startTime: " + startTime + 
 		"\nendTime: " + endTime + 
 		"\nElapse Time: " + lenTime + 
-		"\nTweet Message: " + document.getElementById("TweetMessage").innerText);
+		"\nTweet Message: " + document.getElementById("TweetMessage").innerText +
 		"\nTweet Message length: " + document.getElementById("TweetMessage").innerText.length);
 
 	if (lenTime < 5000) {
