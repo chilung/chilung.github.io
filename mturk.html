@@ -30,7 +30,7 @@
 <crowd-form>
     <div>
         <h2>Background</h2>
-        <p>0824 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>0831 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
     <div id="outer-container">
 	<span class="left-container">
@@ -76,8 +76,6 @@
 <script>
 
   document.querySelector('crowd-form').onsubmit = function(e) {
-    var pleasant = document.getElementsByTagName("crowd-radio-group")[0].("crowd-radio-button")[0].getAttribute("Pleasant");
-    document.write(5 + 6, pleasant)
     errorBox.innerHTML = '<crowd-alert type="error" dismissible>You must add all keypoint annotations and use each label only once.</crowd-alert>';
     errorBox.scrollIntoView();
     return;
